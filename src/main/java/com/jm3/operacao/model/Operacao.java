@@ -126,4 +126,31 @@ public class Operacao {
 		return TipoNegocio.VENDA.equals(this.tipoNegocio);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((codigoId == null) ? 0 : codigoId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Operacao other = (Operacao) obj;
+		if (codigoId == null) {
+			if (other.codigoId != null)
+				return false;
+		} else if (!codigoId.equals(other.codigoId))
+			return false;
+		return true;
+	}
+	
+	
+
 }

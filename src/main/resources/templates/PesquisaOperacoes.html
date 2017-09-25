@@ -15,7 +15,7 @@
 		<div class="panel-heading">
 		<div class="clearfix">
 			<h1 class="panel-title aw-titulo-panel">Pesquisa Operação</h1>
-			<a class="btn btn-link aw-link-panel" th:href="@{/negociacoes/novo}">Cadastrar Operação</a>
+			<a class="btn btn-link aw-link-panel" th:href="@{/operacao/novo}">Cadastrar Operação</a>
 		</div>
 			
 		</div>
@@ -36,33 +36,33 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="negociacao : ${negociacoes}">
-						<td class="text-center" th:text="${negociacao.codigoId}"></td>
-						<td class="text-center" th:text="${negociacao.codigoMercadoria}"></td>
-						<td th:text="${negociacao.nomeMercadoria}"></td>
-						<td class="text-center" th:text="${negociacao.tipoMercadoria.descricao}"></td>
-						<td class="text-right" th:text="${negociacao.quantidade}"></td>
-						<td class="text-right" th:text="|R$${{negociacao.preco}}|"></td>
+					<tr th:each="operacao : ${operacoes}">
+						<td class="text-center" th:text="${operacao.codigoId}"></td>
+						<td class="text-center" th:text="${operacao.codigoMercadoria}"></td>
+						<td th:text="${operacao.nomeMercadoria}"></td>
+						<td class="text-center" th:text="${operacao.tipoMercadoria.descricao}"></td>
+						<td class="text-right" th:text="${operacao.quantidade}"></td>
+						<td class="text-right" th:text="|R$${{operacao.preco}}|"></td>
 						<td class="text-center">
-							<span class="label" th:text="${negociacao.tipoNegocio.descricao}"
-								th:classappend="${negociacao.negociacaoTipo ? 'label-success' : 'label-danger'}"></span> 
+							<span class="label" th:text="${operacao.tipoNegocio.descricao}"
+								th:classappend="${operacao.negociacaoTipo ? 'label-success' : 'label-danger'}"></span> 
 						</td>
-						<td class="text-center" th:text="${{negociacao.dataNegociacao}}"></td>
+						<td class="text-center" th:text="${{operacao.dataNegociacao}}"></td>
 						<td class="text-center">
-							<a class="btn btn-link btn-xs" th:href="@{/negociacoes/{codigo}(codigo=${negociacao.codigoId})}"
+							<a class="btn btn-link btn-xs" th:href="@{/operacao/{codigo}(codigo=${operacao.codigoId})}"
 								title="Editar" rel="tooltip" data-placement="top">
 								<span class="glyphicon glyphicon-pencil"></span>
 							</a>
 							
 							<a class="btn btn-link btn-xs" data-toggle="modal" data-target="#confirmacaoExclusaoModal" 
-									th:attr="data-codigo=${negociacao.codigoId}, data-mercadoria=${negociacao.nomeMercadoria}"
+									th:attr="data-codigo=${operacao.codigoId}, data-mercadoria=${operacao.nomeMercadoria}"
 									title="Excluir" rel="tooltip" data-placement="top">
 								<span class="glyphicon glyphicon-remove"></span>
 							</a>
 						</td>
 					</tr>
 					<tr>
-						<td colspan="9" th:if="${#lists.isEmpty(negociacoes)}">Nenhuma operação encontrada</td>
+						<td colspan="9" th:if="${#lists.isEmpty(operacoes)}">Nenhuma operação encontrada</td>
 					</tr>
 				</tbody>
 			</table>
