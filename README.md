@@ -1,6 +1,6 @@
 # operacoes
-Projeto desenvolvido para cadastro de operações de venda e compra
-Esse projeto foi desenvolvido utilizando SprngBoot MVC, com a coxeção em um banco de dados MySQL 5.7
+Projeto desenvolvido para cadastro de operações de venda e compra.
+Esse projeto foi desenvolvido utilizando SpringBoot MVC, com a conexão em um banco de dados MySQL 5.7
 
 Para executar esse projeto com sucesso será necessário:
 - A criação de um schema no banco de dados com nome de operacoes;
